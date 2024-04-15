@@ -49,8 +49,8 @@ jobs:
           host: 34.64.46.24
           username: rbf0311
           source: "devlog_springboot-0.0.1-SNAPSHOT.jar"
-          target: "/home"
-          key: ${{ secrets.PRIVATE_KEY }}
+          target: "/home/rbf0311"
+          key: ${{secrets.PRIVATE_KEY}}
   
   run-app:
     needs: send-jar
@@ -64,8 +64,8 @@ jobs:
           host: 34.64.46.24
           username: rbf0311
           source: "deploy.sh"
-          target: "/home"
-          key: ${{ secrets.PRIVATE_KEY }}
+          target: "/home/rbf0311"
+          key: ${{secrets.PRIVATE_KEY}}
       - name: Execute script
         uses: appleboy/ssh-action@master
         with:
@@ -73,4 +73,4 @@ jobs:
           host: 34.64.46.24
           key: ${{ secrets.PRIVATE_KEY }}
           script_stop: true
-          script: cd /home && chmod +x deploy.sh && ./deploy.sh
+          script: cd /home/rbf0311 && chmod +x deploy.sh && ./deploy.sh
